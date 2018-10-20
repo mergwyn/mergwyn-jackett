@@ -2,13 +2,14 @@
   "name": "mergwyn-jackett",
   "version": "0.1.0",
   "author": "mergwyn",
-  "summary": "Install jackett",
+  "summary": "Manage installation of jackett",
   "license": "Apache-2.0",
   "source": "https://github.com/mergwyn/mergwyn-jackett.git",
   "project_page": "https://github.com/mergwyn/mergwyn-jackett",
   "issues_url": "https://github.com/mergwyn/mergwyn-jackett/issues",
   "dependencies": [
     {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+    #archive?
   ],
   "data_provider": null
 }
