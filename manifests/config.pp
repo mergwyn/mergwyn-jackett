@@ -1,4 +1,4 @@
-
+#
 class jackett::config {
 
 
