@@ -14,7 +14,7 @@ Type=simple
 Restart=always
 RestartSec=5
 #TODO parameterise path
-ExecStart=/usr/bin/mono --debug /opt/Jackett/JackettConsole.exe --NoRestart
+ExecStart=/usr/bin/mono --debug scope[':jackett::install_path']/Jackett/JackettConsole.exe --NoRestart
 TimeoutStopSec=20
 #ExecStart=/usr/bin/jackett-daemon --foreground --config-dir <%= scope['::jackett::params::config_dir'] %><% if scope['::jackett::log_file'] -%> --logfile <%= scope['::jackett::log_file'] %><% end %>
 #ExecReload=/bin/kill -s HUP $MAINPID
