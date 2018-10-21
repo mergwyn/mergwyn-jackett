@@ -1,0 +1,6 @@
+jackett::package_manage: true
+jackett::service_manage: true
+jackett::service_active: true
+jackett::user:           'jackett'
+jackett::group:          'jackett'
+jackett::install_path:   '/opt'
