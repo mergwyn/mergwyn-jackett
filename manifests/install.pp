@@ -20,7 +20,8 @@ class jackett::install {
       extract_path => $install_path,
       creates      => $package_source,
       cleanup      => false,
-      require      => Class['mono'],
+      #TODO reference to mono
+      #require      => Class['mono'],
     }
   }
 }
