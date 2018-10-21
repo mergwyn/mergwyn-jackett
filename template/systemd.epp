@@ -1,0 +1,23 @@
+############################################
+# WARNING:
+# Managed by puppet - DO NOT modify locally.
+############################################
+
+[Unit]
+Description=Jackett Daemon
+After=network.target
+
+[Service]
+User=<%= scope['::jackett::user'] %>
+Group=<%= scope['::jackett::group'] %>
+Type=simple
+Restart=always
+RestartSec=5
+#TODO parameterise path
+ExecStart=/usr/bin/mono --debug scope[':jackett::install_path']/Jackett/JackettConsole.exe --NoRestart
+TimeoutStopSec=20
+#ExecStart=/usr/bin/jackett-daemon --foreground --config-dir <%= scope['::jackett::params::config_dir'] %><% if scope['::jackett::log_file'] -%> --logfile <%= scope['::jackett::log_file'] %><% end %>
+#ExecReload=/bin/kill -s HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
