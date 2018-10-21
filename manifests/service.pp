@@ -8,7 +8,7 @@ class jackett::service {
     systemd::unit_file { 'jackett.service':
       enable  => $jackett::service_enable,
       active  => $jackett::service_active,
-      content => epp('jackett/systemd.epp'),
+      content => template('jackett/systemd.erb'),
     }
   }
 }
