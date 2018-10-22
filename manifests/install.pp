@@ -18,7 +18,7 @@ class jackett::install {
       group        => $::jacket::group,
       extract      => true,
       extract_path => $install_path,
-      creates      => $package_source,
+      creates      => "${install_path}/Jackett",
       cleanup      => false,
       #TODO reference to mono
       #require      => Class['mono'],
