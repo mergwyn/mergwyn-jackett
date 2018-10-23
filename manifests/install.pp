@@ -8,6 +8,7 @@ class jackett::install {
   $install_path    = $::jackett::install_path
   $extract_dir     = "${install_path}/Jackett-${package_version}"
   $creates         = "${extract_dir}/Jackett"
+  $link            = "${install_path}/Jackett"
   $repository_url  = 'https://github.com/Jackett/Jackett/releases/download/'
   $package_source  = "${repository_url}/${package_version}/${package_name}.tar.gz"
   $archive_name    = "${package_name}-${package_version}.tar.gz"
@@ -26,7 +27,7 @@ class jackett::install {
       #TODO reference to mono
       #require      => Class['mono'],
     }
-    file { '/opt/Jackett':
+    file { $link:
       ensure    => 'link',
       target    => $creates,
       subscribe => Archive[$archive_name],
