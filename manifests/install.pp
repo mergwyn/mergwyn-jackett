@@ -14,7 +14,7 @@ class jackett::install {
   $archive_path    = "${install_path}/${archive_name}"
 
   if $jackett::package_manage {
-    file { $extract_dir: ensure => dir, }
+    file { $extract_dir: ensure => directory, }
 
     archive { $archive_name:
       path         => $archive_path,
@@ -29,7 +29,7 @@ class jackett::install {
     file { '/opt/Jackett':
       ensure    => 'link',
       target    => $creates,
-      subscribe => Archive[$archive_path],
+      subscribe => Archive[$archive_name],
     }
   }
 }
