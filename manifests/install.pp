@@ -15,7 +15,7 @@ class jackett::install {
       user         => $::jackett::user,
       group        => $::jackett::group,
       extract      => true,
-      extract_path => $archive_name,
+      extract_path => $install_path,
       creates      => $archive_name,
       cleanup      => false,
       #TODO reference to mono
