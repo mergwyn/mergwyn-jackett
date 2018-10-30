@@ -10,10 +10,6 @@ class jackett::service {
       active  => $jackett::service_active,
       content => template('jackett/jackett.service.erb'),
     }
-    service { 'jackett':
-      enable => true,
-      ensure => running,
-    }
   }
 }
 # vim: number tabstop=8 expandtab shiftwidth=2 softtabstop=2 ai
