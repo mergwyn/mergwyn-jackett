@@ -23,7 +23,7 @@ class jackett::install {
       extract      => true,
       extract_path => $extract_dir,
       creates      => $creates,
-      cleanup      => false,
+      cleanup      => true,
       #TODO reference to mono
       #require      => Class['mono'],
     }
