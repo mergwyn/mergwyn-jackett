@@ -26,6 +26,7 @@ class jackett::install {
       cleanup      => true,
       #TODO reference to mono
       #require      => Class['mono'],
+      notify        => Service['jackett'],
     }
     file { $link:
       ensure    => 'link',
