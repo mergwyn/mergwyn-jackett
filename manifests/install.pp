@@ -34,8 +34,8 @@ class jackett::install {
     exec {'jackett_tidy':
       cwd         => $install_path,
       path        => '/usr/sbin:/usr/bin:/sbin:/bin:',
-      command     => "ls -d ${link}-* | head -n +2 | xargs echo rm -rf",
-      onlyif      => "test $(ls -d ${link}-* | wc -l) -gt 2",
+      command     => "ls -d ${link}-* | head -n +2 | xargs rm -rf",
+      #onlyif      => "test $(ls -d ${link}-* | wc -l) -gt 2",
       refreshonly => true,
       subscribe   => Archive[$archive_name],
     }
