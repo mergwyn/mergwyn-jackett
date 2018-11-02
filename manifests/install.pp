@@ -1,8 +1,6 @@
 #
 class jackett::install {
 
-  #TODO tidy up old versions
-
   $package_name    = 'Jackett.Binaries.Mono'
   $package_version = $::jackett_version
   $install_path    = $::jackett::install_path
@@ -26,12 +24,20 @@ class jackett::install {
       cleanup      => true,
       #TODO reference to mono
       #require      => Class['mono'],
-      notify        => Service['jackett.service'],
+      notify       => Service['jackett.service'],
     }
     file { $link:
       ensure    => 'link',
       target    => $creates,
       subscribe => Archive[$archive_name],
+    }
+    exec {'jackett_tidy':
+      cwd         => $install_path,
+      path        => '/usr/sbin:/usr/bin:/sbin:/bin:',
+      command     => "ls -d ${link}-* | head -n +2 | xargs echo rm -rf",
+      onlyif      => "test $(ls -d ${link}-* | wc -l) -gt 2",
+      refreshonly => true,
+      subscribe   => Archive[$archive_name],
     }
   }
 }
