@@ -26,6 +26,8 @@ class jackett::install {
       extract_path => $extract_dir,
       creates      => $creates,
       cleanup      => true,
+      user         => $::jackett::user,
+      group        => $::jackett::group,
       #TODO reference to mono
       #require      => Class['mono'],
       notify       => Service['jackett.service'],
