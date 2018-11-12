@@ -1,6 +1,10 @@
 #
 class jackett::install {
 
+  # Make sure version has is a string with at least 1 char
+  unless $::jackett_version =~ String[1] {
+    fail ("jackett_version is '${::jackett_version}'")
+  }
   $package_name    = 'Jackett.Binaries.Mono'
   $package_version = $::jackett_version
   $install_path    = $::jackett::install_path
@@ -34,8 +38,8 @@ class jackett::install {
     exec {'jackett_tidy':
       cwd         => $install_path,
       path        => '/usr/sbin:/usr/bin:/sbin:/bin:',
-      command     => "ls -d ${link}-* | head -n +2 | xargs rm -rf",
-      #onlyif      => "test $(ls -d ${link}-* | wc -l) -gt 2",
+      command     => "ls -d ${link}-* | head -n +${keep} | xargs rm -rf",
+      #onlyif      => "test $(ls -d ${link}-* | wc -l) -gt ${keep}",
       refreshonly => true,
       subscribe   => Archive[$archive_name],
     }

@@ -33,12 +33,13 @@
 # Copyright 2018 Your name here, unless otherwise noted.
 #
 class jackett (
-  Boolean $package_manage = true,
-  Boolean $service_manage = true,
-  Boolean $service_active = true,
-  String  $user = 'jackett',
-  String  $group = 'jackett',
-  String  $install_path = '/opt',
+  Boolean                 $package_manage = true,
+  Boolean                 $service_manage = true,
+  Boolean                 $service_active = true,
+  String                  $user           = 'jackett',
+  String                  $group          = 'jackett',
+  String                  $install_path   = '/opt',
+  Optional[Integer[1,10]] $keep           = 1,
   ) {
 
   contain jackett::config
