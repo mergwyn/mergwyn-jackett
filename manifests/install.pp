@@ -17,7 +17,11 @@ class jackett::install {
   $archive_path    = "${install_path}/${archive_name}"
 
   if $jackett::package_manage {
-    file { $extract_dir: ensure => directory, }
+    file { $extract_dir:
+      ensure => directory,
+      owner  => $::jackett::user,
+      group  => $::jackett::group,
+    }
 
     archive { $archive_name:
       path         => $archive_path,
