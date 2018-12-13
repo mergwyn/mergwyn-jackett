@@ -36,6 +36,7 @@ class jackett (
   Boolean                 $package_manage = true,
   Boolean                 $service_manage = true,
   Boolean                 $service_active = true,
+  Boolean                 $service_enable = true,
   String                  $user           = 'jackett',
   String                  $group          = 'jackett',
   String                  $install_path   = '/opt',
