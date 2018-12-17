@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/mergwyn/mergwyn-jackett.svg?branch=master)](https://travis-ci.org/mergwyn/mergwyn-jackett)
 # jackett
 
 #### Table of Contents
