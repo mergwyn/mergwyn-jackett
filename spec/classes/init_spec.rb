@@ -8,6 +8,9 @@ describe 'jackett' do
 
       context 'with default values for all parameters' do
         it { is_expected.to contain_class('jackett') }
+	it { is_expected.to contain_class('jackett::config') }
+	it { is_expected.to contain_class('jackett::install') }
+	it { is_expected.to contain_class('jackett::service') }
       end
     end
   end
