@@ -13,6 +13,6 @@ end
 Facter.add(:jackett_version) do
   confine kernel: :linux
   setcode do
-    Facter::Util::Resolution.exec("wget -q https://github.com/Jackett/Jackett/releases/latest -O - | grep -E \/tag\/ | awk -F '[><]' '{print $3}'")
+    Facter::Util::Resolution.exec("curl -sI https://github.com/Jackett/Jackett/releases/latest -O - | | grep -Po 'tag\/\K(v\S+)'")
   end
 end
