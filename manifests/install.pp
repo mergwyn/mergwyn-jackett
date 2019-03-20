@@ -3,7 +3,7 @@ class jackett::install {
 
   # Make sure version has is a string with at least 1 char
   unless $::jackett_version =~ String[1] {
-    fail ("jackett_version is '${::jackett_version}'")
+    fail ("jackett_version cannot be an empty string '${::jackett_version}'")
   }
   $package_name    = 'Jackett.Binaries.Mono'
   $package_version = $::jackett_version
