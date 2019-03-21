@@ -15,6 +15,10 @@
     {
       "name": "camptocamp-systemd",
       "version_requirement": ">= 2.0.0 < 3.0.0"
+    },
+    {
+      "name": "puppet-archive",
+      "version_requirement": ">= 3.0.0 < 4.0.0"
     }
   ],
   "operatingsystem_support": [
@@ -27,7 +31,7 @@
     {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
-        "16.04"
+        "18.04"
       ]
     }
   ],
