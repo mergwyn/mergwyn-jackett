@@ -6,7 +6,7 @@ class jackett::install {
     fail ("jackett_version cannot be an empty string '${::jackett_version}'")
   }
   $package_name    = 'Jackett.Binaries.Mono'
-  $package_version = $::jackett_version
+  $package_version = "v${::jackett_version}"
   $install_path    = $::jackett::install_path
   $extract_dir     = "${install_path}/Jackett-${package_version}"
   $creates         = "${extract_dir}/Jackett"
