@@ -1,6 +1,6 @@
 {
   "name": "mergwyn-jackett",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "mergwyn",
   "summary": "Manage installation of jackett",
   "license": "Apache-2.0",
@@ -10,7 +10,7 @@
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
-      "version_requirement": ">= 1.0.0 < 6.0.0"
+      "version_requirement": ">= 1.0.0 < 7.0.0"
     },
     {
       "name": "camptocamp-systemd",
@@ -31,7 +31,8 @@
     {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
-        "18.04"
+        "18.04",
+        "20.04"
       ]
     }
   ],
