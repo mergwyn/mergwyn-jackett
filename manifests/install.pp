@@ -5,7 +5,15 @@ class jackett::install {
   unless $::jackett_version =~ String[1] {
     fail ("jackett_version cannot be an empty string '${::jackett_version}'")
   }
-  $package_name    = 'Jackett.Binaries.Mono'
+  case $facts['os']['name'] {
+    'amd64': {
+      $package_name = 'Jackett.Binaries.LinuxAMDx64'
+    }
+    default: {
+      $package_name = 'Jackett.Binaries.Mono'
+    }
+  }
+
   $package_version = "v${::jackett_version}"
   $install_path    = $::jackett::install_path
   $extract_dir     = "${install_path}/Jackett-${package_version}"
@@ -51,4 +59,3 @@ class jackett::install {
     }
   }
 }
-# vim: number tabstop=8 expandtab shiftwidth=2 softtabstop=2
