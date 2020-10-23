@@ -5,7 +5,7 @@ class jackett::install {
   unless $::jackett_version =~ String[1] {
     fail ("jackett_version cannot be an empty string '${::jackett_version}'")
   }
-  case $facts['os']['name'] {
+  case $facts['os']['architecture'] {
     'amd64': {
       $package_name = 'Jackett.Binaries.LinuxAMDx64'
     }

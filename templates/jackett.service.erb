@@ -13,7 +13,8 @@ Group=<%= scope['::jackett::group'] %>
 Type=simple
 Restart=always
 RestartSec=5
-ExecStart=/bin/sh "<%= scope['::jackett::install_path'] %>/jackett_launcher.sh"
+# TODO make ExecStart conditional
+ExecStart=/bin/sh "<%= scope['::jackett::install_path'] %>/Jackett/jackett_launcher.sh"
 TimeoutStopSec=20
 #ExecReload=/bin/kill -s HUP $MAINPID
 
