@@ -14,7 +14,7 @@ class jackett::install {
     }
   }
 
-  $package_version = "v${::jackett_version}"
+  $package_version = "${::jackett_version}"
   $install_path    = $::jackett::install_path
   $extract_dir     = "${install_path}/Jackett-${package_version}"
   $creates         = "${extract_dir}/Jackett"
