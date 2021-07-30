@@ -25,6 +25,9 @@ class jackett::install {
   $archive_path    = "${install_path}/${archive_name}"
 
   if $jackett::package_manage {
+    if ! defined( Package[curl] ) { package { 'curl': ensure=>installed; } }
+    if ! defined( Package[jq] )   { package { 'jq':   ensure=>installed; } }
+
     file { $extract_dir:
       ensure => directory,
       owner  => $::jackett::user,
