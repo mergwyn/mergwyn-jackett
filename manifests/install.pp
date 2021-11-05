@@ -27,7 +27,7 @@ class jackett::install {
     $creates         = "${extract_dir}/Jackett"
     $link            = "${install_path}/Jackett"
     $repository_url  = 'https://github.com/Jackett/Jackett/releases/download/'
-    $package_source  = "${repository_url}/${package_version}/${package_name}.tar.gz"
+    $package_source  = "${repository_url}/v${package_version}/${package_name}.tar.gz"
     $archive_name    = "${package_name}-${package_version}.tar.gz"
     $archive_path    = "${install_path}/${archive_name}"
 
